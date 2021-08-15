@@ -1,0 +1,38 @@
+/* Login Page*/
+
+#login{
+    background-color: beige;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form{
+    margin-top: 10rem;
+    padding: 5vh;
+}
+#headlogin{
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: -150px;
+}
+.column{
+    max-width: 500px;
+}
+
+.register{
+    max-width: 550px;
+    
+}
+/* Welcome Page*/
+.welcome{
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+
+/* Profile Page*/
+.profiletext{
+    font-size: 17px;
+    font-weight: 400;
+}
