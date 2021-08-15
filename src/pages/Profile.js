@@ -62,7 +62,7 @@ function Profile() {
         getProfileId();
     })
     const getContacts = function(){
-        Axios.get(`${url}/users/${userid}/contacts`,{
+        Axios.get(`${config.baseUrl}/users/${userid}/contacts`,{
             headers: {
               'Authorization': `Bearer ${token}` 
             }
