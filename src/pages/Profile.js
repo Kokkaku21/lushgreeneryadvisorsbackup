@@ -41,7 +41,7 @@ function Profile() {
 
     const token = getTokenFromLocalStore();
     const getProfileId = function () {
-        Axios.get(`${config.baseUrl}}/users/${userid}`,{
+        Axios.get(`${config.baseUrl}/users/${userid}`,{
             headers: {
               'Authorization': `Bearer ${token}` 
             }
