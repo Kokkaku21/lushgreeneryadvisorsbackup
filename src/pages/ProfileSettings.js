@@ -28,7 +28,7 @@ function SettingsProfile() {
             .catch(error => console.log(`Error: ${error}`))
         }
         if (password != "") {
-            axios.put(`${url}/users/password/${userid}`, {password: password})
+            axios.put(`${config.baseUrl}/users/password/${userid}`, {password: password})
         }
     }
     
