@@ -62,12 +62,6 @@ function Login() {
                             }}>
                                 <div class="visible content">Login!</div>
                             </Button>
-                            <Button color="green" floated="right" animated>
-                                <div class="visible content">Register!</div>
-                                <div class="hidden content">
-                                    <i class="right arrow icon"></i>
-                                </div>
-                            </Button>
                         </Form.Field>
                     </Form>
 
