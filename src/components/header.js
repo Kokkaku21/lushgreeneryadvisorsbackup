@@ -28,5 +28,5 @@ function Headies() {
         
     )
 }
-P
+
 export default Headies;
