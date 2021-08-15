@@ -52,7 +52,7 @@ function CustomerItems(data) {
     }
     
     const handleResolved=() =>{
-        axios.put(`${baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}).catch(error => console.log(`Error: ${error}`));
+        axios.put(`${config.baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}).catch(error => console.log(`Error: ${error}`));
     }
     useEffect(() => {
         getCustomersContacts();
