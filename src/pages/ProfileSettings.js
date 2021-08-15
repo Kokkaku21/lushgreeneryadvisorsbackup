@@ -5,6 +5,8 @@ import { Form, Button, Message } from "semantic-ui-react"
 import { Modal } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import config from "../config";
+import {getTokenFromLocalStore, getUserIDFromLocalStore} from "../utils/Common"
 
 const validator = require('validator');
 
@@ -18,12 +20,11 @@ function SettingsProfile() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const userid = 3;
-    const url = "http://localhost:3030";
+    const userid = getUserIDFromLocalStore();
 
     const handleUpdateSubmit = function () {
         if (email != "") {
-            axios.put(`${url}/users/email/${userid}`, { registered_email: email })
+            axios.put(`${config.baseUrl}/users/email/${userid}`, { registered_email: email })
             .catch(error => console.log(`Error: ${error}`))
         }
         if (password != "") {

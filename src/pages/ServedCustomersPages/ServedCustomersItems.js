@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
 import { Modal } from "react-bootstrap";
 import axios from 'axios';
+import config from '../../config';
 
 function CustomerItems(data) {
     const [buttonChange, setButtonChange] = useState(false);
@@ -19,11 +20,10 @@ function CustomerItems(data) {
 
 
 
-    const baseUrl = "http://localhost:3030";
     const visitorid = data.data.visitor_id
     const getCustomersContacts = () => {
 
-        axios.get(`${baseUrl}/visitors/${visitorid}/contacts`)
+        axios.get(`${config.baseUrl}/visitors/${visitorid}/contacts`)
             .then((response) => {
                 console.log(response.data)
                 return response.data;

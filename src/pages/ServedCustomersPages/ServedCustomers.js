@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Title from '../../components/title';
 import Headers from '../../components/header'
-import { Button } from 'semantic-ui-react';
 import {getUserIDFromLocalStore} from '../../utils/Common'
 import CustomerItems from './ServedCustomersItems';
 import axios from 'axios';
-
+import config from '../../config';
 
 function Served() {
     const [data, setData] = useState([]);
 
     const userid = getUserIDFromLocalStore();
-    const baseUrl = "http://localhost:3030";
     const getCustomers = () => {
 
-        axios.get(`${baseUrl}/customers/${userid}`)
+        axios.get(`${config.baseUrl}/customers/${userid}`)
             .then((response) => {
                 console.log(response.data[0].visitor_id)
                 setData(response.data)

@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom"
 import { Form, Button, Message } from "semantic-ui-react"
 import axios from 'axios';
 import {saveUserDataToLocalStorage} from '../utils/Common'
+import config from '../config'
 
 
 function Login() {
@@ -13,10 +14,8 @@ function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
 
-    const url = "http://localhost:3030";
-
     const onSubmit = function () {
-        axios.post(`${url}/users/login`, { username: username, password: password }).then(response => {
+        axios.post(`${config.baseUrl}/users/login`, { username: username, password: password }).then(response => {
             console.log(response.data.token);
             console.log(response.data.user_id);
             console.log(response.data.username);

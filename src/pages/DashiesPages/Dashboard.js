@@ -4,17 +4,17 @@ import NavBar from '../../components/header'
 import { Row, Col, Container } from 'react-bootstrap'
 import DashieCards from './DashieCards';
 import axios from "axios";
-import {getUsernameFromLocalStore, getUserIDFromLocalStore} from "../../utils/Common"
+import {getUsernameFromLocalStore, getUserIDFromLocalStore} from "../../utils/Common";
+import config from "../../config"
 
 
 function Dashie() {
     const username = getUsernameFromLocalStore();
     const [data, setData] = useState([]);
     const id = getUserIDFromLocalStore();
-    const baseUrl = "http://localhost:3030";
     const GetDashieInfo = () => {
 
-        axios.get(`${baseUrl}/customers/${id}`)
+        axios.get(`${config.baseUrl}/customers/${id}`)
             .then((response) => {
                 console.log(response.data)
                 setData(response.data);

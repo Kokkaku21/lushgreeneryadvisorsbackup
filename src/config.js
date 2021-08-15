@@ -1,4 +1,4 @@
-const config ={
-    baseUrl: "http://localhost:3030"
-}
+const config = {
+    baseUrl: "http://lushgreenery.herokuapp.com",
+  };
 export default config;

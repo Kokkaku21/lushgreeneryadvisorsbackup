@@ -8,6 +8,7 @@ import {AdvancedImage, lazyload} from '@cloudinary/react';
 import  {Cloudinary} from "@cloudinary/base";
 import Axios from "axios";
 import {fill} from "@cloudinary/base/actions/resize";
+import config from "../config"
 import {getUserIDFromLocalStore, getTokenFromLocalStore} from "../utils/Common"
 
 
@@ -30,7 +31,7 @@ function Profile() {
 
     
     const userid = getUserIDFromLocalStore();
-    const url = "http://localhost:3030";
+    
 
     const cld = new Cloudinary({
         cloud:{
@@ -40,7 +41,7 @@ function Profile() {
 
     const token = getTokenFromLocalStore();
     const getProfileId = function () {
-        Axios.get(`${url}/users/${userid}`,{
+        Axios.get(`${config.baseUrl}}/users/${userid}`,{
             headers: {
               'Authorization': `Bearer ${token}` 
             }

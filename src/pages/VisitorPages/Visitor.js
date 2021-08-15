@@ -5,16 +5,16 @@ import { Button } from 'semantic-ui-react';
 import VisitorItems from './VisitorItems';
 import axios from 'axios';
 import {getUserIDFromLocalStore} from '../../utils/Common';
+import config from '../../config';
 
 
 function Visitor() {
     const [data, setData] = useState([]);
 
     const userid = getUserIDFromLocalStore();
-    const baseUrl = "http://localhost:3030";
     const getCustomers = () => {
 
-        axios.get(`${baseUrl}/visitors`)
+        axios.get(`${config.baseUrl}/visitors`)
             .then((response) => {
                 console.log(response.data[0].visitor_id)
                 setData(response.data)
