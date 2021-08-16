@@ -12,7 +12,7 @@ function Served() {
     const userid = getUserIDFromLocalStore();
     const getCustomers = () => {
 
-        axios.get(`${config.baseUrl}/customers/${userid}`)
+        axios.get(`${config.baseUrl}/visitors/helpedby/${userid}`)
             .then((response) => {
                 console.log(response.data[0].visitor_id)
                 setData(response.data)
