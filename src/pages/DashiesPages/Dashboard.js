@@ -4,7 +4,7 @@ import NavBar from '../../components/header'
 import { Row, Col, Container } from 'react-bootstrap'
 import DashieCards from './DashieCards';
 import axios from "axios";
-import {getUsernameFromLocalStore, getUserIDFromLocalStore} from "../../utils/Common";
+import {getUsernameFromLocalStore, getUserIDFromLocalStore, getTokenFromLocalStore} from "../../utils/Common";
 import config from "../../config"
 
 
@@ -12,9 +12,14 @@ function Dashie() {
     const username = getUsernameFromLocalStore();
     const [data, setData] = useState([]);
     const id = getUserIDFromLocalStore();
+    const token = getTokenFromLocalStore();
     const GetDashieInfo = () => {
 
-        axios.get(`${config.baseUrl}/customers/${id}`)
+        axios.get(`${config.baseUrl}/customers/${id}`, {
+            headers: {
+              'Authorization': `Bearer ${token}` 
+            }
+          })
             .then((response) => {
                 console.log(response.data)
                 setData(response.data);

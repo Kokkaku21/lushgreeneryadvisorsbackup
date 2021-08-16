@@ -8,7 +8,7 @@ import {getTokenFromLocalStore} from '../../utils/Common'
 function CustomerItems(data) {
     const [buttonChange, setButtonChange] = useState(false);
     const [show, setShow] = useState(false);
-
+    const token = getTokenFromLocalStore();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -53,7 +53,11 @@ function CustomerItems(data) {
     }
     
     const handleResolved=() =>{
-        axios.put(`${config.baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}).catch(error => console.log(`Error: ${error}`));
+        axios.put(`${config.baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}, {
+            headers: {
+              'Authorization': `Bearer ${token}` 
+            }
+          }).catch(error => console.log(`Error: ${error}`));
     }
     useEffect(() => {
         getCustomersContacts();
