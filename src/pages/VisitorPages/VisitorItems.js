@@ -57,7 +57,11 @@ function VisitorItems({props, userid}) {
     console.log(userid)
 
     const handleUpdate = () =>{
-        axios.put(`${config.baseUrl}/users/help/${visitorid}`, {helped_by: userid})
+        axios.put(`${config.baseUrl}/users/help/${visitorid}`, {helped_by: userid}, {
+            headers: {
+              'Authorization': `Bearer ${token}` 
+            }
+          })
         .catch(error => console.log(`Error: ${error}`));
     }
     useEffect(() => {
