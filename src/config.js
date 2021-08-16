@@ -1,4 +1,4 @@
 const config = {
-    baseUrl: "http://lushgreenery.herokuapp.com",
+    baseUrl: "https://lushgreenery.herokuapp.com",
   };
 export default config;
