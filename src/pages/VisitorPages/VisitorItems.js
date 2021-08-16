@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
 import { Modal } from "react-bootstrap";
 import axios from 'axios';
+import {getTokenFromLocalStore} from "../../utils/Common"
+import config from "../../config"
 
 function VisitorItems({props, userid}) {
     const [show, setShow] = useState(false);
@@ -16,11 +18,16 @@ function VisitorItems({props, userid}) {
     const [teledetails, setTeleDetails] = useState("N/A");
 
 
-    const baseUrl = "http://localhost:3030";
     const visitorid = props.visitor_id
+    console.log(visitorid)
+    const token = getTokenFromLocalStore()
     const getCustomersContacts = () => {
 
-        axios.get(`${baseUrl}/visitors/${3}/contacts`)
+        axios.get(`${config.baseUrl}/visitors/contacts/${visitorid}`,{
+            headers: {
+              'Authorization': `Bearer ${token}` 
+            }
+          })
             .then((response) => {
                 console.log(response.data)
                 return response.data;
@@ -50,7 +57,7 @@ function VisitorItems({props, userid}) {
     console.log(userid)
 
     const handleUpdate = () =>{
-        axios.put(`${baseUrl}/users/help/${visitorid}`, {helped_by: userid})
+        axios.put(`${config.baseUrl}/users/help/${visitorid}`, {helped_by: userid})
         .catch(error => console.log(`Error: ${error}`));
     }
     useEffect(() => {

@@ -13,6 +13,7 @@ function Login() {
     const history = useHistory();
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = function () {
         axios.post(`${config.baseUrl}/users/login`, { username: username, password: password }).then(response => {
@@ -21,6 +22,8 @@ function Login() {
             console.log(response.data.username);
             saveUserDataToLocalStorage(response.data.token, response.data.username, response.data.user_id)
             history.push('/home')
+        }).catch((error)=>{
+            console.log(error)
         })
     }
 

@@ -3,6 +3,7 @@ import { Button } from 'semantic-ui-react';
 import { Modal } from "react-bootstrap";
 import axios from 'axios';
 import config from '../../config';
+import {getTokenFromLocalStore} from '../../utils/Common'
 
 function CustomerItems(data) {
     const [buttonChange, setButtonChange] = useState(false);
@@ -52,7 +53,7 @@ function CustomerItems(data) {
     }
     
     const handleResolved=() =>{
-        axios.put(`${baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}).catch(error => console.log(`Error: ${error}`));
+        axios.put(`${config.baseUrl}/users/resolved/${visitorid}`, {resolved: "Yes"}).catch(error => console.log(`Error: ${error}`));
     }
     useEffect(() => {
         getCustomersContacts();

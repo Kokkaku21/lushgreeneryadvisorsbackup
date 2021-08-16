@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Title from '../../components/title';
 import Headers from '../../components/header'
-import {getUserIDFromLocalStore} from '../../utils/Common'
+import {getUserIDFromLocalStore, getTokenFromLocalStore} from '../../utils/Common'
 import CustomerItems from './ServedCustomersItems';
 import axios from 'axios';
 import config from '../../config';
